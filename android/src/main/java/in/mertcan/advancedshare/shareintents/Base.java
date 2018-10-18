@@ -3,8 +3,11 @@ package in.mertcan.advancedshare.shareintents;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.content.pm.PackageManager;
 
 import java.util.Map;
+import java.util.List;
 
 import in.mertcan.advancedshare.FileHelper;
 
@@ -43,6 +46,13 @@ public abstract class Base {
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 intent.putExtra(Intent.EXTRA_STREAM, fileHelper.getUri());
                 intent.setType(fileHelper.getType());
+                
+                List<ResolveInfo> resolvedIntentActivities = registrar.activity().getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
+                    String packageName = resolvedIntentInfo.activityInfo.packageName;
+                    registrar.activity().grantUriPermission(packageName, fileHelper.getUri(),       
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                }
             }
         }
         return 0;
