@@ -22,6 +22,7 @@ import 'package:advanced_share/advanced_share.dart';
 ##### generic({String msg, String url, String title, String subject, String type})
 ##### whatsapp({String msg, String url})
 ##### gmail({String subject, String msg, String url})
+
 **Result values**
 
 | Value  | Result  |
@@ -51,7 +52,8 @@ AdvancedShare.generic(
     title: "Share with Advanced Share",
   ).then((response){
 	print(response);
-});
+  }
+);
 ```
 ``` dart
 String BASE64_IMAGE = "data:image/png;base64, ...";
@@ -61,9 +63,10 @@ AdvancedShare.generic(
     title: "Share Image",
     type: "image/png",
     url: BASE64_IMAGE
-	).then((response){
-	print(response);
-	});
+    ).then( (response) {
+	  print(response);
+    }
+);
 ```
 ``` dart
 AdvancedShare.generic(
@@ -71,8 +74,9 @@ AdvancedShare.generic(
 );
 ```
 ``` dart
-    AdvancedShare.whatsapp(msg: "It's okay :)")
-	.then((response) {
-      handleResponse(response, appName: "Whatsapp");
-    });
+AdvancedShare.whatsapp(msg: "It's okay :)")
+  .then((response) {
+    handleResponse(response, appName: "Whatsapp");
+   }
+);
 ```
