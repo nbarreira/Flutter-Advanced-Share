@@ -1,11 +1,18 @@
 # Advanced Share Plugin
-Share text and file your flutter app.
+Share text and file your flutter app forked from [mrtcndnlr/Flutter-Advanced-Share](https://github.com/mrtcndnlr/Flutter-Advanced-Share)
 
 #### Compatible
-Only android because i dont have a Mac. Can you give me a mac for gift :)
+Only **Android**
 
 #### Usage
-add `advanced_share` as a dependency in your pubspec.yaml file.
+Add `advanced_share` as a dependency in your pubspec.yaml file:
+
+advanced_share:
+    git:
+      url: https://github.com/nbarreira/Flutter-Advanced-Share.git
+
+
+
 
 Import the library via
 ``` dart
@@ -52,6 +59,7 @@ AdvancedShare.generic(
     msg: "Base64 file share", 
     subject: "Flutter",
     title: "Share Image",
+    type: "image/png",
     url: BASE64_IMAGE
 	).then((response){
 	print(response);
