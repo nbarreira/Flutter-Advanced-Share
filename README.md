@@ -6,11 +6,11 @@ Only **Android**
 
 #### Usage
 Add `advanced_share` as a dependency in your pubspec.yaml file:
-
+```
 advanced_share:
     git:
       url: https://github.com/nbarreira/Flutter-Advanced-Share.git
-
+```
 
 
 
